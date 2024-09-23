@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/viktoriyabilyk/RiderProjects/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj",
-      "projectName": "ConsoleApp8",
-      "projectPath": "/Users/viktoriyabilyk/RiderProjects/ConsoleApp8/ConsoleApp8/ConsoleApp8.csproj",
+      "projectUniqueName": "/Users/viktoriyabilyk/RiderProjects/ConsoleApp8/coffee_van/coffee_van.csproj",
+      "projectName": "coffee_van",
+      "projectPath": "/Users/viktoriyabilyk/RiderProjects/ConsoleApp8/coffee_van/coffee_van.csproj",
       "packagesPath": "/Users/viktoriyabilyk/.nuget/packages/",
-      "outputPath": "/Users/viktoriyabilyk/RiderProjects/ConsoleApp8/ConsoleApp8/obj/",
+      "outputPath": "/Users/viktoriyabilyk/RiderProjects/ConsoleApp8/coffee_van/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/viktoriyabilyk/.nuget/NuGet/NuGet.Config"

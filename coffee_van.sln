@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp8", "ConsoleApp8\ConsoleApp8.csproj", "{5AF4D745-724D-45EA-9165-041F439B659B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "coffee_van", "coffee_van\coffee_van.csproj", "{5AF4D745-724D-45EA-9165-041F439B659B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
