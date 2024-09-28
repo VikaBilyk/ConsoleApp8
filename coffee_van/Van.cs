@@ -1,28 +1,14 @@
+
 namespace coffee_van;
-
-public class Van
-{
-    public double MaxVanVolume { get; set; }
-    public List<Coffee> LoadedCoffee { get; set; }
-
-    public Van(double maxVanVolume, List<Coffee> loadedCoffee)
+    public class Van
     {
-        MaxVanVolume = maxVanVolume;
-        LoadedCoffee = loadedCoffee;
-    }
+        public double MaxVanVolume { get; set; }
+        public List<Coffee> LoadedCoffee { get; set; }
 
-    public void LoadVan(List<Coffee> newCoffeeList)
-    {
-        double currentVanVolume = 0;
-        foreach (var coffee in newCoffeeList)
+        Van(double maxVanVolume, List<Coffee> loadedCoffee)
         {
-            if (coffee.Volume + currentVanVolume <= MaxVanVolume)
-            {
-                LoadedCoffee.Add(coffee);
-                currentVanVolume+=coffee.Volume;
-            }
-            
+            MaxVanVolume = maxVanVolume;
+            LoadedCoffee = loadedCoffee;
         }
-        
+
     }
-}
