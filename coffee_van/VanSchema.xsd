@@ -1,0 +1,28 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Van">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="MaxVanVolume" type="xs:double"/>
+                <xs:element name="LoadedCoffee">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Coffee" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="Name"/>
+                                        <xs:element type="xs:string" name="Type"/>
+                                        <xs:element type="xs:string" name="State"/>
+                                        <xs:element type="xs:double" name="Cost"/>
+                                        <xs:element type="xs:double" name="Weight"/>
+                                        <xs:element type="xs:double" name="Volume"/>
+                                        <xs:element type="xs:double" name="Quality"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
