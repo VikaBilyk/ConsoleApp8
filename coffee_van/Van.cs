@@ -1,31 +1,28 @@
-namespace lab1_coffee_van;
+namespace coffee_van;
 
 public class Van
 {
     public double MaxVanVolume { get; set; }
-    public List<Coffee> Coffees { get; set; }
+    public List<Coffee> LoadedCoffee { get; set; }
 
-    public Van(double maxVanVolume, List<Coffee> coffees)
+    public Van(double maxVanVolume, List<Coffee> loadedCoffee)
     {
         MaxVanVolume = maxVanVolume;
-        Coffees = coffees;
+        LoadedCoffee = loadedCoffee;
     }
 
-    public void AddProducts(Coffee newCoffee)
+    public void LoadVan(List<Coffee> newCoffeeList)
     {
-        double vanVolume = 0;
-        foreach (var c in Coffees)
+        double currentVanVolume = 0;
+        foreach (var coffee in newCoffeeList)
         {
-            vanVolume += c.Volume;
+            if (coffee.Volume + currentVanVolume <= MaxVanVolume)
+            {
+                LoadedCoffee.Add(coffee);
+                currentVanVolume+=coffee.Volume;
+            }
+            
         }
-        double freeVanVolume = MaxVanVolume - vanVolume;
-        if (freeVanVolume > newCoffee.Volume)
-        {
-            Coffees.Add(newCoffee);
-        }
-        else
-        {
-            Console.WriteLine("Van is too small");
-        }
+        
     }
 }
