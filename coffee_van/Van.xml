@@ -8,8 +8,8 @@
             <State>Whole</State>
             <Cost>50.0</Cost>
             <Weight>500</Weight>
-            <Volume>2.5</Volume>
             <Quality>8.5</Quality>
+            <Volume>2.5</Volume>
         </Coffee>
         <Coffee>
             <Name>Robusta</Name>
@@ -17,8 +17,8 @@
             <State>Powder</State>
             <Cost>40.0</Cost>
             <Weight>400</Weight>
-            <Volume>2.0</Volume>
             <Quality>7.8</Quality>
+            <Volume>2.0</Volume>
         </Coffee>
         <!-- Додати інші товари кави -->
     </LoadedCoffee>

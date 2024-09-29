@@ -14,8 +14,8 @@
                                         <xs:element type="xs:string" name="State"/>
                                         <xs:element type="xs:double" name="Cost"/>
                                         <xs:element type="xs:double" name="Weight"/>
-                                        <xs:element type="xs:double" name="Volume"/>
                                         <xs:element type="xs:double" name="Quality"/>
+                                        <xs:element type="xs:double" name="Volume"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
