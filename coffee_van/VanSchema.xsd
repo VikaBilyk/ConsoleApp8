@@ -10,7 +10,7 @@
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element type="xs:string" name="Name"/>
-                                        <xs:element type="xs:string" name="Type"/>
+                                        <xs:element type="xs:string" name="Variety"/>
                                         <xs:element type="xs:string" name="State"/>
                                         <xs:element type="xs:double" name="Cost"/>
                                         <xs:element type="xs:double" name="Weight"/>

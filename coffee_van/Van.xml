@@ -1,4 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Van>
   <MaxVanVolume>200</MaxVanVolume>
+  <Coffee>
+    <Name>Lavazza</Name>
+    <Variety>Arabica</Variety>
+    <State>f</State>
+    <Cost>2</Cost>
+    <Weight>2</Weight>
+    <Quality>2</Quality>
+    <Volume>2</Volume>
+  </Coffee>
+  <Coffee>
+    <Name>Illy</Name>
+    <Variety>Arabica</Variety>
+    <State>f</State>
+    <Cost>4</Cost>
+    <Weight>4</Weight>
+    <Quality>4</Quality>
+    <Volume>3</Volume>
+  </Coffee>
+  <Coffee>
+    <Name>Lavazza</Name>
+    <Variety>Kona</Variety>
+    <State>g</State>
+    <Cost>4</Cost>
+    <Weight>4</Weight>
+    <Quality>4</Quality>
+    <Volume>4</Volume>
+  </Coffee>
 </Van>

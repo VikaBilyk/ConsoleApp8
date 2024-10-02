@@ -1,9 +1,14 @@
-
 using System.Xml.Linq;
 using static System.Console;
+using InvalidOperationException = System.InvalidOperationException;
 
-public static class CoffeeManager
+//переписати цикли while
+
+public class CoffeeManager
 {
+    private static bool _falseAnswerA = true;
+    private static bool _falseAnswerB = true;
+    
     public static void AddProduct(XElement loadedCoffee, double maxVanVolume )
     {
         double currentVanVolume = 0;
@@ -15,19 +20,76 @@ public static class CoffeeManager
         }
 
         WriteLine($"Current loaded volume: {currentVanVolume} kilograms");
+        WriteLine($"Current free volume: {maxVanVolume - currentVanVolume} kilograms");
         
         XElement coffee = new XElement("Coffee");
+
+        while (_falseAnswerA)
+        {
+            WriteLine("Enter name of product: ");
+            WriteLine(
+                "Lavazza - 1\nIlly - 2\nStarbucks - 3\nNespresso - 4\nBlue_Bottle_Coffee - 5\nCaribou_Coffee - 6 ");
+            int? inputP = Int32.Parse(ReadLine());
+
+            CoffeeNames selectedCoffee;
+
+            switch (inputP)
+            {
+                case 1:
+                    selectedCoffee = CoffeeNames.Lavazza;
+                    break;
+                case 2:
+                    selectedCoffee = CoffeeNames.Illy;
+                    break;
+                case 3:
+                    selectedCoffee = CoffeeNames.Starbucks;
+                    break;
+                case 4:
+                    selectedCoffee = CoffeeNames.Nespresso;
+                    break;
+                case 5:
+                    selectedCoffee = CoffeeNames.Blue_Bottle_Coffee;
+                    break;
+                case 6:
+                    selectedCoffee = CoffeeNames.Caribou_Coffee;
+                    break;
+                default:
+                    WriteLine("Invalid input, please try again.");
+                    continue;
+            }
+
+            coffee.Add(new XElement("Name", selectedCoffee));
+            _falseAnswerA = false;
+        }
         
-        WriteLine("Enter name of product: ");
-        string? input = ReadLine();
-        coffee.Add(new XElement("Name", input));
-        
-        WriteLine("Enter type of coffee:");
-        input = ReadLine();
-        coffee.Add(new XElement("Type", input));
-        
+        while (_falseAnswerB)
+        {
+            WriteLine("Enter variety of coffee:");
+            WriteLine("Arabica - 1\nRobusta - 2\nKona - 3");
+            
+            CoffeeVarieties selectedCoffee;
+            int? inputP = Int32.Parse(ReadLine());
+            switch (inputP)
+            {
+                case 1:
+                    selectedCoffee = CoffeeVarieties.Arabica;
+                    break;
+                case 2:
+                    selectedCoffee = CoffeeVarieties.Robusta;
+                    break;
+                case 3:
+                    selectedCoffee = CoffeeVarieties.Kona;
+                    break;
+                default:
+                    WriteLine("Invalid input, please try again.");
+                    continue;
+            }
+            coffee.Add(new XElement("Variety", selectedCoffee));
+            _falseAnswerB = false;
+        }
+
         WriteLine("Enter state of coffee:");
-        input = ReadLine();
+        string? input = ReadLine();
         coffee.Add(new XElement("State", input));
         
         WriteLine("Enter cost of coffee:");
@@ -37,7 +99,7 @@ public static class CoffeeManager
             coffee.Add(new XElement("Cost", cost));
         }
 
-        WriteLine("Enter weight of coffee: ");
+        WriteLine("Enter weight of coffee in kilograms: ");
         input = ReadLine();
         if (double.TryParse(input, out double weight))
         {
@@ -88,6 +150,7 @@ public static class CoffeeManager
             WriteLine($"Name: {c.Element("Name")?.Value}\nPrice per weight: {PricePerWeight(c)}");
         }
     }
+   
     public static void FindCoffee(XElement van)
     {
         WriteLine("Enter min price for coffee: ");
@@ -102,22 +165,21 @@ public static class CoffeeManager
         var coffeeList = van.Elements("Coffee")
             .Where(c => 
             {
-                // Перетворення значення "Price" з XML на число для порівняння
-                double price;
-                bool isPriceValid = double.TryParse(c.Element("Cost")?.Value, out price);
-                return isPriceValid && price >= minPrice && price <= maxPrice;
+                double pricePerWeight = PricePerWeight(c);
+                return pricePerWeight >= minPrice && pricePerWeight <= maxPrice;
             })
             .Select(c => new
             {
                 Name = c.Element("Name")?.Value,
-                Price = c.Element("Cost")?.Value
+                Price = PricePerWeight(c),
+                Cost = c.Element("Cost")?.Value,
             });
-
+        WriteLine("List of coffee in selected range: ");
         if (coffeeList.Any())
         {
             foreach (var coffee in coffeeList)
             {
-                WriteLine("Name: " + coffee.Name);
+                WriteLine($"Name: {coffee.Name} - {coffee.Cost} - {coffee.Price}");
             }
         }
         else
@@ -130,6 +192,24 @@ public static class CoffeeManager
     {
         double price = double.Parse(coffee.Element("Cost")?.Value ?? "0");
         double weight = double.Parse(coffee.Element("Weight")?.Value ?? "1");
-        return price/weight;
+        return price/weight*0.01;
     }
+    
+}
+
+public enum CoffeeNames
+{
+    Lavazza,
+    Illy,
+    Starbucks, 
+    Nespresso,
+    Blue_Bottle_Coffee,
+    Caribou_Coffee
+}
+
+public enum CoffeeVarieties
+{
+    Arabica,
+    Robusta,
+    Kona
 }
