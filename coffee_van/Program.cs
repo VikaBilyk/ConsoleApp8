@@ -6,18 +6,17 @@ class Program
 {
     static void Main()
     {
-        // Шлях до XML-файлу
         string vanFilePath = "/Users/viktoriyabilyk/RiderProjects/ConsoleApp8/coffee_van/Van.xml";
-
-        // Завантаження існуючого файлу XML
+        
         XDocument xDoc;
+        
         if (File.Exists(vanFilePath))
         {
             xDoc = XDocument.Load(vanFilePath);
         }
         else
         {
-            xDoc = new XDocument(new XElement("Van")); // Якщо файл не існує, створюємо новий кореневий елемент
+            xDoc = new XDocument(new XElement("Van"));
         }
 
         XElement xRoot = xDoc.Element("Van");
@@ -26,14 +25,12 @@ class Program
             xRoot = new XElement("Van");
             xDoc.Add(xRoot);
         }
-
-        // Отримання поточної максимальної ваги
+        
         XElement vanMaxVolumeElement = xRoot.Element("MaxVanVolume");
         double maxVolume;
 
         if (vanMaxVolumeElement != null)
         {
-            // Якщо вже є максимальна вага, запитуємо чи змінити її
             maxVolume = (double)vanMaxVolumeElement;
             WriteLine($"Current max volume of van: {maxVolume} kilograms");
 
@@ -48,7 +45,7 @@ class Program
                 if (double.TryParse(input, out maxVolume))
                 {
                     vanMaxVolumeElement.Value = maxVolume.ToString();
-                    WriteLine($"Max volume of van changed to: {maxVolume} kilograms");
+                    WriteLine($"Max volume of van changed to: {maxVolume} cubic meters");
                 }
                 else
                 {
@@ -62,7 +59,6 @@ class Program
         }
         else
         {
-            // Якщо максимальна вага ще не задана, просимо користувача ввести її
             WriteLine("Enter max volume of van: ");
             string? input = ReadLine();
 
@@ -107,8 +103,6 @@ class Program
                     break;
             }
         }
-
-        // Зберігаємо зміни після завершення роботи
         xDoc.Save(vanFilePath);
         WriteLine("Data saved.");
     }

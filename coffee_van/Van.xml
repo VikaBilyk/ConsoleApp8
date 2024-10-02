@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Van>
-  <MaxVanVolume>200</MaxVanVolume>
+  <MaxVanVolume>300</MaxVanVolume>
   <Coffee>
     <Name>Lavazza</Name>
     <Variety>Arabica</Variety>
@@ -27,5 +27,77 @@
     <Weight>4</Weight>
     <Quality>4</Quality>
     <Volume>4</Volume>
+  </Coffee>
+  <Coffee>
+    <Name>Nespresso</Name>
+    <Variety>Kona</Variety>
+    <State>f</State>
+    <Cost>2</Cost>
+    <Weight>2</Weight>
+    <Quality>2</Quality>
+    <Volume>2</Volume>
+  </Coffee>
+  <Coffee>
+    <Name>Blue_Bottle_Coffee</Name>
+    <Variety>Kona</Variety>
+    <State>f</State>
+    <Cost>3</Cost>
+    <Weight>3</Weight>
+    <Quality>3</Quality>
+    <Volume>3</Volume>
+  </Coffee>
+  <Coffee>
+    <Name>Lavazza</Name>
+    <Variety>Kona</Variety>
+    <State>f</State>
+    <Cost>3</Cost>
+    <Weight>3</Weight>
+    <Quality>5</Quality>
+    <Volume>2</Volume>
+  </Coffee>
+  <Coffee>
+    <Name>Starbucks</Name>
+    <Variety>Arabica</Variety>
+    <State>f</State>
+    <Cost>3</Cost>
+    <Weight>3</Weight>
+    <Quality>3</Quality>
+    <Volume>3</Volume>
+  </Coffee>
+  <Coffee>
+    <Name>Nespresso</Name>
+    <Variety>Robusta</Variety>
+    <State>g</State>
+    <Cost>4</Cost>
+    <Weight>4</Weight>
+    <Quality>4</Quality>
+    <Volume>4</Volume>
+  </Coffee>
+  <Coffee>
+    <Name>Blue_Bottle_Coffee</Name>
+    <Variety>Kona</Variety>
+    <State>Instant_Coffee</State>
+    <Cost>34</Cost>
+    <Weight>23</Weight>
+    <Quality>7</Quality>
+    <Volume>9</Volume>
+  </Coffee>
+  <Coffee>
+    <Name>Lavazza</Name>
+    <Variety>Arabica</Variety>
+    <State>Coffee_Beans</State>
+    <Cost>200</Cost>
+    <Weight>100</Weight>
+    <Quality>3</Quality>
+    <Volume>6</Volume>
+  </Coffee>
+  <Coffee>
+    <Name>Nespresso</Name>
+    <Variety>Kona</Variety>
+    <State>Coffee_Beans</State>
+    <Cost>10000</Cost>
+    <Weight>50</Weight>
+    <Quality>4</Quality>
+    <Volume>5</Volume>
   </Coffee>
 </Van>

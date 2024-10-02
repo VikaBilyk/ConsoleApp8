@@ -6,9 +6,6 @@ using InvalidOperationException = System.InvalidOperationException;
 
 public class CoffeeManager
 {
-    private static bool _falseAnswerA = true;
-    private static bool _falseAnswerB = true;
-    
     public static void AddProduct(XElement loadedCoffee, double maxVanVolume )
     {
         double currentVanVolume = 0;
@@ -21,85 +18,42 @@ public class CoffeeManager
 
         WriteLine($"Current loaded volume: {currentVanVolume} kilograms");
         WriteLine($"Current free volume: {maxVanVolume - currentVanVolume} kilograms");
+        WriteLine();
         
         XElement coffee = new XElement("Coffee");
-
-        while (_falseAnswerA)
-        {
-            WriteLine("Enter name of product: ");
-            WriteLine(
-                "Lavazza - 1\nIlly - 2\nStarbucks - 3\nNespresso - 4\nBlue_Bottle_Coffee - 5\nCaribou_Coffee - 6 ");
-            int? inputP = Int32.Parse(ReadLine());
-
-            CoffeeNames selectedCoffee;
-
-            switch (inputP)
-            {
-                case 1:
-                    selectedCoffee = CoffeeNames.Lavazza;
-                    break;
-                case 2:
-                    selectedCoffee = CoffeeNames.Illy;
-                    break;
-                case 3:
-                    selectedCoffee = CoffeeNames.Starbucks;
-                    break;
-                case 4:
-                    selectedCoffee = CoffeeNames.Nespresso;
-                    break;
-                case 5:
-                    selectedCoffee = CoffeeNames.Blue_Bottle_Coffee;
-                    break;
-                case 6:
-                    selectedCoffee = CoffeeNames.Caribou_Coffee;
-                    break;
-                default:
-                    WriteLine("Invalid input, please try again.");
-                    continue;
-            }
-
-            coffee.Add(new XElement("Name", selectedCoffee));
-            _falseAnswerA = false;
-        }
         
-        while (_falseAnswerB)
-        {
-            WriteLine("Enter variety of coffee:");
-            WriteLine("Arabica - 1\nRobusta - 2\nKona - 3");
-            
-            CoffeeVarieties selectedCoffee;
-            int? inputP = Int32.Parse(ReadLine());
-            switch (inputP)
-            {
-                case 1:
-                    selectedCoffee = CoffeeVarieties.Arabica;
-                    break;
-                case 2:
-                    selectedCoffee = CoffeeVarieties.Robusta;
-                    break;
-                case 3:
-                    selectedCoffee = CoffeeVarieties.Kona;
-                    break;
-                default:
-                    WriteLine("Invalid input, please try again.");
-                    continue;
-            }
-            coffee.Add(new XElement("Variety", selectedCoffee));
-            _falseAnswerB = false;
-        }
+        string productNameOptions =
+        "Lavazza - 1\nIlly - 2\nStarbucks - 3\nNespresso - 4\nBlue_Bottle_Coffee - 5\nCaribou_Coffee - 6 ";
+        
+        WriteLine("Enter name of product: ");
+        WriteLine();
+        CoffeeNames selectedCoffeeName = SelectCoffeeNameFromUserInput(GetInfoFromUserInput(productNameOptions, 6));
+        coffee.Add(new XElement("Name", selectedCoffeeName));
+        
+        string productVarietyOptions = "Arabica - 1\nRobusta - 2\nKona - 3";
+        
+        WriteLine("Enter variety of coffee:");
+        WriteLine();
+        CoffeeVarieties selectedCoffeeVariety = SelectCoffeeVarietyFromUserInput(GetInfoFromUserInput(productVarietyOptions, 3));
+        coffee.Add(new XElement("Variety", selectedCoffeeVariety));
 
+        string productStateOptions = "CoffeeBeans - 1\nGround_Coffee - 2\nInstant_Coffee - 3";
+        
         WriteLine("Enter state of coffee:");
-        string? input = ReadLine();
-        coffee.Add(new XElement("State", input));
+        WriteLine();
+        CoffeeStates selectedCoffeeState = SelectCoffeeStateFromUserInput(GetInfoFromUserInput(productStateOptions, 3));
+        coffee.Add(new XElement("State", selectedCoffeeState));
         
         WriteLine("Enter cost of coffee:");
-        input = ReadLine();
+        WriteLine();
+        string? input = ReadLine();
         if (double.TryParse(input, out double cost))
         {
             coffee.Add(new XElement("Cost", cost));
         }
 
         WriteLine("Enter weight of coffee in kilograms: ");
+        WriteLine();
         input = ReadLine();
         if (double.TryParse(input, out double weight))
         {
@@ -107,6 +61,7 @@ public class CoffeeManager
         }
         
         WriteLine("Enter quality of coffee: ");
+        WriteLine();
         input = ReadLine();
         if (double.TryParse(input, out double quality))
         {
@@ -118,6 +73,7 @@ public class CoffeeManager
         }
         
         WriteLine("Enter volume of coffee:");
+        WriteLine();
         input = ReadLine();
         if (double.TryParse(input, out double volumeInput))
         {
@@ -125,7 +81,8 @@ public class CoffeeManager
             {
                 coffee.Add(new XElement("Volume", volumeInput));
                 loadedCoffee?.Add(coffee);
-                WriteLine($"Name: {coffee.Element("Name")?.Value}\nType: {coffee.Element("Type")?.Value}\nState: {coffee.Element("State")?.Value}\nCost: {coffee.Element("Cost")?.Value}\nWeight: {coffee.Element("Weight")?.Value}\nQuality: {coffee.Element("Quality")?.Value}\nVolume: {coffee.Element("Volume")?.Value} ");
+                WriteLine($"Name: {coffee.Element("Name")?.Value}\nVariety: {coffee.Element("Variety")?.Value}\nState: {coffee.Element("State")?.Value}\nCost: {coffee.Element("Cost")?.Value}\nWeight: {coffee.Element("Weight")?.Value}\nQuality: {coffee.Element("Quality")?.Value}\nVolume: {coffee.Element("Volume")?.Value} ");
+                WriteLine("___________________________________");
             }
             else
                 WriteLine("Error: Not enough space in the van.");
@@ -144,10 +101,12 @@ public class CoffeeManager
         }
         coffeeList.Sort(new CoffeeComparer());
         WriteLine("Sorted coffee by price per weight:");
+        WriteLine();
 
         foreach (var c in coffeeList)
         {
             WriteLine($"Name: {c.Element("Name")?.Value}\nPrice per weight: {PricePerWeight(c)}");
+            WriteLine("___________________________________");
         }
     }
    
@@ -175,11 +134,13 @@ public class CoffeeManager
                 Cost = c.Element("Cost")?.Value,
             });
         WriteLine("List of coffee in selected range: ");
+        WriteLine();
         if (coffeeList.Any())
         {
             foreach (var coffee in coffeeList)
             {
                 WriteLine($"Name: {coffee.Name} - {coffee.Cost} - {coffee.Price}");
+                WriteLine("___________________________________");
             }
         }
         else
@@ -192,7 +153,77 @@ public class CoffeeManager
     {
         double price = double.Parse(coffee.Element("Cost")?.Value ?? "0");
         double weight = double.Parse(coffee.Element("Weight")?.Value ?? "1");
-        return price/weight*0.01;
+        return price/weight;
+    }
+
+    private static int GetInfoFromUserInput(string input, int max)
+    {
+        bool exit = false;
+        int value = 0;
+        while (!exit)
+        {
+            WriteLine(input);
+            WriteLine("___________________________________");
+            value = int.Parse(ReadLine());
+            if (value <= max && value >= 1)
+            {
+                exit = true;
+            }
+            WriteLine("___________________________________");
+        }
+
+        return value;
+    }
+
+    private static CoffeeNames SelectCoffeeNameFromUserInput(int value)
+    {
+        switch (value)
+        {
+            case 1:
+                return CoffeeNames.Lavazza;
+            case 2:
+                return CoffeeNames.Illy;
+            case 3:
+                return CoffeeNames.Starbucks;
+            case 4:
+                return CoffeeNames.Nespresso;
+            case 5:
+                return CoffeeNames.Blue_Bottle_Coffee;
+            case 6:
+                return CoffeeNames.Caribou_Coffee;
+            default:
+                throw new Exception("Invalid input /SelectCoffeeFromUserInput");
+        }
+    }
+    
+    private static CoffeeVarieties SelectCoffeeVarietyFromUserInput(int value)
+    {
+        switch (value)
+        {
+            case 1:
+                return CoffeeVarieties.Arabica;
+            case 2:
+                return CoffeeVarieties.Robusta;
+            case 3:
+                return CoffeeVarieties.Kona;
+            default:
+                throw new Exception("Invalid input /SelectCoffeeVarietyFromUserInput");
+        }
+    }
+
+    private static CoffeeStates SelectCoffeeStateFromUserInput(int value)
+    {
+        switch (value)
+        {
+            case 1:
+                return CoffeeStates.Coffee_Beans;
+            case 2:
+                return CoffeeStates.Ground_Coffee;
+            case 3:
+                return CoffeeStates.Instant_Coffee;
+            default:
+                throw new Exception("Invalid input /SelectCoffeeStateFromUserInput");
+        }
     }
     
 }
@@ -212,4 +243,11 @@ public enum CoffeeVarieties
     Arabica,
     Robusta,
     Kona
+}
+
+public enum CoffeeStates
+{
+    Coffee_Beans,
+    Ground_Coffee,
+    Instant_Coffee
 }
