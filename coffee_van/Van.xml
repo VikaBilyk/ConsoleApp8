@@ -1,25 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Van>
-    <MaxVanVolume>500.0</MaxVanVolume>
-    <LoadedCoffee>
-        <Coffee>
-            <Name>Arabica</Name>
-            <Type>Beans</Type>
-            <State>Whole</State>
-            <Cost>50.0</Cost>
-            <Weight>500</Weight>
-            <Quality>8.5</Quality>
-            <Volume>2.5</Volume>
-        </Coffee>
-        <Coffee>
-            <Name>Robusta</Name>
-            <Type>Ground</Type>
-            <State>Powder</State>
-            <Cost>40.0</Cost>
-            <Weight>400</Weight>
-            <Quality>7.8</Quality>
-            <Volume>2.0</Volume>
-        </Coffee>
-        <!-- Додати інші товари кави -->
-    </LoadedCoffee>
+  <MaxVanVolume>200</MaxVanVolume>
 </Van>

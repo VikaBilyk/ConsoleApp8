@@ -88,12 +88,48 @@ public static class CoffeeManager
             WriteLine($"Name: {c.Element("Name")?.Value}\nPrice per weight: {PricePerWeight(c)}");
         }
     }
-    
+    public static void FindCoffee(XElement van)
+    {
+        WriteLine("Enter min price for coffee: ");
+        double minPrice = double.Parse(ReadLine()!);
+        
+        WriteLine("Enter max price for coffee: ");
+        double maxPrice = double.Parse(ReadLine()!);
+        
+        if(minPrice > maxPrice)
+            throw new Exception("Min price cannot be greater than max price");
+
+        var coffeeList = van.Elements("Coffee")
+            .Where(c => 
+            {
+                // Перетворення значення "Price" з XML на число для порівняння
+                double price;
+                bool isPriceValid = double.TryParse(c.Element("Cost")?.Value, out price);
+                return isPriceValid && price >= minPrice && price <= maxPrice;
+            })
+            .Select(c => new
+            {
+                Name = c.Element("Name")?.Value,
+                Price = c.Element("Cost")?.Value
+            });
+
+        if (coffeeList.Any())
+        {
+            foreach (var coffee in coffeeList)
+            {
+                WriteLine("Name: " + coffee.Name);
+            }
+        }
+        else
+        {
+            WriteLine("No coffee found in the given price range.");
+        }
+
+    }
     public static double PricePerWeight(XElement coffee)
     {
         double price = double.Parse(coffee.Element("Cost")?.Value ?? "0");
         double weight = double.Parse(coffee.Element("Weight")?.Value ?? "1");
         return price/weight;
     }
-    
 }
