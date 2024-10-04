@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Van>
+  <MaxVanVolume>1</MaxVanVolume>
+  <Coffee>
+    <Name>qwerty</Name>
+    <Type>wqe</Type>
+    <State>qew</State>
+    <Cost>1</Cost>
+    <Weight>2</Weight>
+    <Quality>3</Quality>
+    <Volume>1</Volume>
+  </Coffee>
+</Van>
