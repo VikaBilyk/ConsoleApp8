@@ -100,4 +100,23 @@
     <Quality>4</Quality>
     <Volume>5</Volume>
   </Coffee>
+  <Coffee>
+    <Name>Starbucks</Name>
+    <Variety>Robusta</Variety>
+    <State>Coffee_Beans</State>
+    <Cost>500</Cost>
+    <Weight>20</Weight>
+    <Quality>5</Quality>
+    <Volume>40</Volume>
+  </Coffee>
+  <MaxVanPrice>1000000</MaxVanPrice>
+  <Coffee>
+    <Name>Starbucks</Name>
+    <Variety>Kona</Variety>
+    <State>Instant_Coffee</State>
+    <Cost>100</Cost>
+    <Weight>45</Weight>
+    <Quality>4</Quality>
+    <Volume>9</Volume>
+  </Coffee>
 </Van>

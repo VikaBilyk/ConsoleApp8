@@ -3,6 +3,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="MaxVanVolume" type="xs:double"/>
+                <xs:element name="MaxVanPrice" type="xs:double"/>
                 <xs:element name="LoadedCoffee">
                     <xs:complexType>
                         <xs:sequence>

@@ -2,6 +2,13 @@
 using System.Xml.Linq;
 using static System.Console;
 
+//Фургон кави.
+//Завантажити фургон певного об'єму вантажем на певну суму з різних сортів кави,
+//які знаходяться в різних фізичних станах (зерно, мелене, розчинне в банках і пакетиках).
+//Урахувати об'єм кави разом з упаковкою. Провести сортування товарів на основі співвідношення ціни та ваги.
+//Знайти товар у фургоні, що відповідає заданому діапазону параметрів якості.
+
+
 class Program
 {
     static void Main()
@@ -26,13 +33,16 @@ class Program
             xDoc.Add(xRoot);
         }
         
-        XElement vanMaxVolumeElement = xRoot.Element("MaxVanVolume");
+        XElement vanMaxVolumeElement = xRoot.Element("MaxVanVolume") ?? throw new InvalidOperationException();
         double maxVolume;
+
+        XElement vanMaxPriceElement = xRoot.Element("MaxVanPrice") ?? throw new InvalidOperationException();
+        double maxPrice;
 
         if (vanMaxVolumeElement != null)
         {
             maxVolume = (double)vanMaxVolumeElement;
-            WriteLine($"Current max volume of van: {maxVolume} kilograms");
+            WriteLine($"Current max volume of van: {maxVolume} cubic meters");
 
             WriteLine("Do you want to change the max volume? (yes/no): ");
             string? userChoice = ReadLine()?.ToLower();
@@ -66,7 +76,56 @@ class Program
             {
                 vanMaxVolumeElement = new XElement("MaxVanVolume", maxVolume);
                 xRoot.Add(vanMaxVolumeElement);
-                WriteLine($"Max volume of van set to: {maxVolume} kilograms");
+                WriteLine($"Max volume of van set to: {maxVolume} cubic meters");
+            }
+            else
+            {
+                WriteLine("Invalid input. Exiting program.");
+                return;
+            }
+        }
+        
+        if (vanMaxPriceElement != null)
+        {
+            maxPrice = (double)vanMaxPriceElement;
+            WriteLine($"Current max price of van: {maxPrice} i.u.");
+            WriteLine();
+
+            WriteLine("Do you want to change the max price? (yes/no): ");
+            string? userChoice = ReadLine()?.ToLower();
+
+            if (userChoice == "yes" || userChoice == "y")
+            {
+                WriteLine("Enter new max price of van: ");
+                string? input = ReadLine();
+
+                if (double.TryParse(input, out maxPrice))
+                {
+                    vanMaxPriceElement.Value = maxPrice.ToString();
+                    WriteLine($"Max price of van changed to: {maxPrice} i.u.");
+                    WriteLine();
+                }
+                else
+                {
+                    WriteLine("Invalid input. Keeping the previous max price.");
+                }
+            }
+            else
+            {
+                WriteLine("Max price of van remains unchanged.");
+            }
+        }
+        
+        else
+        {
+            WriteLine("Enter max price of van: ");
+            string? input = ReadLine();
+
+            if (double.TryParse(input, out maxPrice))
+            {
+                vanMaxPriceElement = new XElement("MaxVanPrice", maxPrice);
+                xRoot.Add(vanMaxPriceElement);
+                WriteLine($"Max price of van set to: {maxPrice} i.u.");
             }
             else
             {
@@ -89,8 +148,8 @@ class Program
             switch (choice)
             {
                 case 1:
-                    CoffeeManager.AddProduct(xRoot, maxVolume);
-                    xDoc.Save(vanFilePath); // Зберігаємо зміни після додавання продукту
+                    CoffeeManager.AddProduct(xRoot, maxVolume, maxPrice);
+                    // xDoc.Save(vanFilePath);
                     break;
                 case 2:
                     CoffeeManager.SortCoffeeByPrice(xRoot);

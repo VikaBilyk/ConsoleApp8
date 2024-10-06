@@ -6,9 +6,10 @@ using InvalidOperationException = System.InvalidOperationException;
 
 public class CoffeeManager
 {
-    public static void AddProduct(XElement loadedCoffee, double maxVanVolume )
+    public static void AddProduct(XElement loadedCoffee, double maxVanVolume, double maxVanPrice )
     {
         double currentVanVolume = 0;
+        double currentVanPrice = 0;
 
         foreach (var c in loadedCoffee.Elements("Coffee"))
         {
@@ -18,6 +19,16 @@ public class CoffeeManager
 
         WriteLine($"Current loaded volume: {currentVanVolume} kilograms");
         WriteLine($"Current free volume: {maxVanVolume - currentVanVolume} kilograms");
+        WriteLine();
+
+        foreach (var c in loadedCoffee.Elements("Coffee"))
+        {
+            double price = (double)(c.Element("Cost") ?? throw new InvalidOperationException());
+            currentVanPrice += price;
+        }
+        
+        WriteLine($"Current loaded price: {currentVanVolume}");
+        WriteLine($"Current free price: {maxVanPrice - currentVanPrice}");
         WriteLine();
         
         XElement coffee = new XElement("Coffee");
@@ -60,11 +71,12 @@ public class CoffeeManager
             coffee.Add(new XElement("Weight", weight));
         }
         
-        WriteLine("Enter quality of coffee: ");
+        WriteLine("Enter quality of coffee from 1 to 10: ");
         WriteLine();
         input = ReadLine();
         if (double.TryParse(input, out double quality))
         {
+            if(quality<=10&&quality>=1)
             coffee.Add(new XElement("Quality", quality));
         }
         else
