@@ -119,4 +119,13 @@
     <Quality>4</Quality>
     <Volume>9</Volume>
   </Coffee>
+  <Coffee>
+    <Name>Lavazza</Name>
+    <Variety>Arabica</Variety>
+    <State>Coffee_Beans</State>
+    <Cost>45</Cost>
+    <Weight>4</Weight>
+    <Quality>4</Quality>
+    <Volume>4</Volume>
+  </Coffee>
 </Van>

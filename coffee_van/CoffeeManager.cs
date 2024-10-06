@@ -77,7 +77,7 @@ public class CoffeeManager
         if (double.TryParse(input, out double quality))
         {
             if(quality<=10&&quality>=1)
-            coffee.Add(new XElement("Quality", quality));
+                coffee.Add(new XElement("Quality", quality));
         }
         else
         {
@@ -92,7 +92,7 @@ public class CoffeeManager
             if (volumeInput + currentVanVolume <= maxVanVolume)
             {
                 coffee.Add(new XElement("Volume", volumeInput));
-                loadedCoffee?.Add(coffee);
+                loadedCoffee.Add(coffee);
                 WriteLine($"Name: {coffee.Element("Name")?.Value}\nVariety: {coffee.Element("Variety")?.Value}\nState: {coffee.Element("State")?.Value}\nCost: {coffee.Element("Cost")?.Value}\nWeight: {coffee.Element("Weight")?.Value}\nQuality: {coffee.Element("Quality")?.Value}\nVolume: {coffee.Element("Volume")?.Value} ");
                 WriteLine("___________________________________");
             }
@@ -147,9 +147,10 @@ public class CoffeeManager
             });
         WriteLine("List of coffee in selected range: ");
         WriteLine();
-        if (coffeeList.Any())
+        var enumerable = coffeeList.ToList();
+        if (enumerable.Any())
         {
-            foreach (var coffee in coffeeList)
+            foreach (var coffee in enumerable)
             {
                 WriteLine($"Name: {coffee.Name} - {coffee.Cost} - {coffee.Price}");
                 WriteLine("___________________________________");
@@ -176,7 +177,7 @@ public class CoffeeManager
         {
             WriteLine(input);
             WriteLine("___________________________________");
-            value = int.Parse(ReadLine());
+            value = int.Parse(ReadLine() ?? throw new InvalidOperationException());
             if (value <= max && value >= 1)
             {
                 exit = true;
@@ -200,9 +201,9 @@ public class CoffeeManager
             case 4:
                 return CoffeeNames.Nespresso;
             case 5:
-                return CoffeeNames.Blue_Bottle_Coffee;
+                return CoffeeNames.BlueBottleCoffee;
             case 6:
-                return CoffeeNames.Caribou_Coffee;
+                return CoffeeNames.CaribouCoffee;
             default:
                 throw new Exception("Invalid input /SelectCoffeeFromUserInput");
         }
@@ -228,11 +229,11 @@ public class CoffeeManager
         switch (value)
         {
             case 1:
-                return CoffeeStates.Coffee_Beans;
+                return CoffeeStates.CoffeeBeans;
             case 2:
-                return CoffeeStates.Ground_Coffee;
+                return CoffeeStates.GroundCoffee;
             case 3:
-                return CoffeeStates.Instant_Coffee;
+                return CoffeeStates.InstantCoffee;
             default:
                 throw new Exception("Invalid input /SelectCoffeeStateFromUserInput");
         }
@@ -246,8 +247,8 @@ public enum CoffeeNames
     Illy,
     Starbucks, 
     Nespresso,
-    Blue_Bottle_Coffee,
-    Caribou_Coffee
+    BlueBottleCoffee,
+    CaribouCoffee
 }
 
 public enum CoffeeVarieties
@@ -259,7 +260,7 @@ public enum CoffeeVarieties
 
 public enum CoffeeStates
 {
-    Coffee_Beans,
-    Ground_Coffee,
-    Instant_Coffee
+    CoffeeBeans,
+    GroundCoffee,
+    InstantCoffee
 }
