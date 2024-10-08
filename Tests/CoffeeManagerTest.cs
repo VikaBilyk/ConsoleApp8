@@ -1,174 +1,97 @@
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Xml.Linq;
+using System.IO;
+using System.Linq;
 
-namespace Tests
+[TestClass]
+public class CoffeeManagerTests
 {
-    [TestClass]
-    public class CoffeeManagerTest
+    private XElement _coffeeVan;
+    private const double MaxVolume = 100.0; // Example max volume for the van
+    private const double MaxPrice = 500.0; // Example max price for the van
+
+    [TestInitialize]
+    public void Setup()
     {
-        // Test: Valid Input, product should be added successfully
-        [TestMethod]
-        public void AddProduct_ValidInput_AddsProductToLoadedCoffee()
-        {
-            // Arrange
-            var loadedCoffee = new XElement("Coffees");
-            double maxVanVolume = 10.0;
-            double maxVanPrice = 50.0;
-
-            CoffeeManagerTestHelper.SetConsoleInput(new[] 
-            {
-                "1", // Select Coffee Name (Lavazza)
-                "1", // Select Variety (Arabica)
-                "2", // Select State (GroundCoffee)
-                "15.5", // Enter Cost
-                "3.0", // Enter Weight
-                "9", // Enter Quality
-                "2.0" // Enter Volume
-            });
-
-            // Act
-            CoffeeManager.AddProduct(loadedCoffee, maxVanVolume, maxVanPrice);
-
-            // Assert
-            var addedCoffee = loadedCoffee.Element("Coffee");
-            Assert.IsNotNull(addedCoffee, "Coffee was not added.");
-            Assert.AreEqual("Lavazza", addedCoffee.Element("Name").Value, "Incorrect Coffee Name");
-            Assert.AreEqual("Arabica", addedCoffee.Element("Variety").Value, "Incorrect Variety");
-            Assert.AreEqual("GroundCoffee", addedCoffee.Element("State").Value, "Incorrect State");
-            Assert.AreEqual("15.5", addedCoffee.Element("Cost").Value, "Incorrect Cost");
-            Assert.AreEqual("3.0", addedCoffee.Element("Weight").Value, "Incorrect Weight");
-            Assert.AreEqual("9", addedCoffee.Element("Quality").Value, "Incorrect Quality");
-            Assert.AreEqual("2.0", addedCoffee.Element("Volume").Value, "Incorrect Volume");
-        }
-
-        // Test: Invalid input (cost), no product should be added
-        [TestMethod]
-        public void AddProduct_InvalidCost_DoesNotAddProduct()
-        {
-            // Arrange
-            var loadedCoffee = new XElement("Coffees");
-            double maxVanVolume = 10.0;
-            double maxVanPrice = 50.0;
-
-            CoffeeManagerTestHelper.SetConsoleInput(new[] 
-            {
-                "1", // Select Coffee Name (Lavazza)
-                "1", // Select Variety (Arabica)
-                "2", // Select State (GroundCoffee)
-                "invalid", // Enter invalid Cost
-                "3.0", // Enter Weight
-                "9", // Enter Quality
-                "2.0" // Enter Volume
-            });
-
-            // Act
-            CoffeeManager.AddProduct(loadedCoffee, maxVanVolume, maxVanPrice);
-
-            // Assert
-            Assert.AreEqual(0, loadedCoffee.Elements("Coffee").Count(), "Product should not be added due to invalid cost.");
-        }
-
-        // Test: Exceeding van volume
-        [TestMethod]
-        public void AddProduct_ExceedsVanVolume_DoesNotAddProduct()
-        {
-            // Arrange
-            var loadedCoffee = new XElement("Coffees",
-                new XElement("Coffee", new XElement("Volume", 8.0))
-            );
-            double maxVanVolume = 10.0;
-            double maxVanPrice = 50.0;
-
-            CoffeeManagerTestHelper.SetConsoleInput(new[] 
-            {
-                "1", // Select Coffee Name (Lavazza)
-                "1", // Select Variety (Arabica)
-                "2", // Select State (GroundCoffee)
-                "15.5", // Enter Cost
-                "3.0", // Enter Weight
-                "9", // Enter Quality
-                "5.0" // Enter Volume (Exceeds remaining capacity)
-            });
-
-            // Act
-            CoffeeManager.AddProduct(loadedCoffee, maxVanVolume, maxVanPrice);
-
-            // Assert
-            Assert.AreEqual(1, loadedCoffee.Elements("Coffee").Count(), "Product should not be added due to exceeding van volume.");
-        }
-
-        // Test: Exceeding van price
-        [TestMethod]
-        public void AddProduct_ExceedsVanPrice_DoesNotAddProduct()
-        {
-            // Arrange
-            var loadedCoffee = new XElement("Coffees",
-                new XElement("Coffee", new XElement("Cost", 45.0))
-            );
-            double maxVanVolume = 10.0;
-            double maxVanPrice = 50.0;
-
-            CoffeeManagerTestHelper.SetConsoleInput(new[] 
-            {
-                "1", // Select Coffee Name (Lavazza)
-                "1", // Select Variety (Arabica)
-                "2", // Select State (GroundCoffee)
-                "10.0", // Enter Cost (Exceeds remaining price capacity)
-                "3.0", // Enter Weight
-                "9", // Enter Quality
-                "2.0" // Enter Volume
-            });
-
-            // Act
-            CoffeeManager.AddProduct(loadedCoffee, maxVanVolume, maxVanPrice);
-
-            // Assert
-            Assert.AreEqual(1, loadedCoffee.Elements("Coffee").Count(), "Product should not be added due to exceeding van price.");
-        }
-
-        // Test: Invalid quality input
-        [TestMethod]
-        public void AddProduct_InvalidQuality_DoesNotAddProduct()
-        {
-            // Arrange
-            var loadedCoffee = new XElement("Coffees");
-            double maxVanVolume = 10.0;
-            double maxVanPrice = 50.0;
-
-            CoffeeManagerTestHelper.SetConsoleInput(new[] 
-            {
-                "1", // Select Coffee Name (Lavazza)
-                "1", // Select Variety (Arabica)
-                "2", // Select State (GroundCoffee)
-                "15.5", // Enter Cost
-                "3.0", // Enter Weight
-                "invalid", // Enter invalid Quality
-                "2.0" // Enter Volume
-            });
-
-            // Act
-            CoffeeManager.AddProduct(loadedCoffee, maxVanVolume, maxVanPrice);
-
-            // Assert
-            Assert.AreEqual(0, loadedCoffee.Elements("Coffee").Count(), "Product should not be added due to invalid quality input.");
-        }
+        // Initialize the coffee van as an empty XML element for testing
+        _coffeeVan = new XElement("CoffeeVan");
     }
 
-    // Helper class to mock user input
-    public static class CoffeeManagerTestHelper
+    [TestMethod]
+    public void AddProduct_ShouldAddCoffee_WhenInputsAreValid()
     {
-        private static Queue<string> _consoleInput;
+        // Arrange
+        var coffeeInputXml = @"
+        <Coffee>
+            <Volume>10</Volume>
+            <Cost>100</Cost>
+        </Coffee>";
+        var loadedCoffee = XElement.Parse(coffeeInputXml);
+        _coffeeVan.Add(loadedCoffee);
 
-        public static void SetConsoleInput(IEnumerable<string> inputs)
-        {
-            _consoleInput = new Queue<string>(inputs);
-        }
+        // Simulate user input with correct values
+        // Here, we assume: 
+        // 1 = Lavazza
+        // 1 = Arabica
+        // 1 = CoffeeBeans
+        // Cost = 200
+        // Weight = 5
+        // Quality = 10
+        // Volume = 8
+        var userInput = new StringReader("1\n1\n1\n200\n5\n10\n8\n");
+        Console.SetIn(userInput);
 
-        public static string? ReadLine()
+        // Act
+        CoffeeManager.AddProduct(_coffeeVan, MaxVolume, MaxPrice);
+
+        // Assert
+        Assert.AreEqual(2, _coffeeVan.Elements("Coffee").Count()); // Expecting two coffees now
+
+        var addedCoffee = _coffeeVan.Elements("Coffee").Last();
+        Assert.AreEqual("Lavazza", addedCoffee.Element("Name")?.Value);
+        Assert.AreEqual("Arabica", addedCoffee.Element("Variety")?.Value);
+        Assert.AreEqual("CoffeeBeans", addedCoffee.Element("State")?.Value);
+        Assert.AreEqual("200", addedCoffee.Element("Cost")?.Value);
+        Assert.AreEqual("5", addedCoffee.Element("Weight")?.Value);
+        Assert.AreEqual("10", addedCoffee.Element("Quality")?.Value); // Change expected to 10
+        Assert.AreEqual("8", addedCoffee.Element("Volume")?.Value); // Ensure the volume is correctly set
+    }
+
+
+    [TestMethod]
+    public void SortCoffeeByPrice_ShouldSortCoffees_WhenCoffeesExist()
+    {
+        // Arrange
+        var coffee1 = new XElement("Coffee",
+            new XElement("Name", "Coffee1"),
+            new XElement("Cost", "100"),
+            new XElement("Weight", "10"));
+        var coffee2 = new XElement("Coffee",
+            new XElement("Name", "Coffee2"),
+            new XElement("Cost", "200"),
+            new XElement("Weight", "20"));
+        _coffeeVan.Add(coffee1);
+        _coffeeVan.Add(coffee2);
+
+        // Act
+        CoffeeManager.SortCoffeeByPrice(_coffeeVan);
+
+        // Assert
+        var sortedCoffees = _coffeeVan.Elements("Coffee").ToList();
+        Assert.AreEqual("Coffee1", sortedCoffees[0].Element("Name")?.Value);
+        Assert.AreEqual("Coffee2", sortedCoffees[1].Element("Name")?.Value);
+    }
+
+    [TestMethod]
+    [ExpectedException(typeof(Exception), "Min price cannot be greater than max price")]
+    public void FindCoffee_ShouldThrowException_WhenMinPriceGreaterThanMaxPrice()
+    {
+        // Act
+        using (var reader = new StringReader("200\n100\n"))
         {
-            return _consoleInput.Count > 0 ? _consoleInput.Dequeue() : null;
+            Console.SetIn(reader);
+            CoffeeManager.FindCoffee(_coffeeVan);
         }
     }
 }

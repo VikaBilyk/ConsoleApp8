@@ -1,12 +1,107 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestProjectMapping/=5AF4D745_002D724D_002D45EA_002D9165_002D041F439B659B/@EntryIndexedValue">Tests</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=MSTest/@EntryIndexedValue">d6790ab7-33c2-4425-b2c9-51480cd1a852</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=06301b90_002D28fd_002D471f_002D82b0_002D37ad5319e828/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CoffeeManagerTest #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0aa6a4eb_002Db8fa_002D49d2_002Db29f_002Dda91dfa8a974/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CoffeeManagerTest #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2a23db8d_002De67e_002D4d7c_002Da57f_002D89ab0c8c511c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CoffeeManagerTest #8" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2a3e3038_002Dde52_002D4b70_002D8eed_002D52ac324da3fc/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="FuncAdding_InputIsZero_ShouldReturnOne" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest.AddProduct_ValidInput_ProductShouldBeAddedSuccessfully&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2fe4546b_002D88b4_002D4509_002D8164_002D064f1d6fd98c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CoffeeManagerTest #5" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=42efbecb_002Db4a9_002D41b5_002Dba66_002D752ec3df5c52/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CoffeeManagerTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a8227531_002D142c_002D4a8c_002Db167_002D2d39f44e0cd9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CoffeeManagerTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4828ed23_002D618a_002D480d_002D83f3_002Dbda0bc371204/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CoffeeManagerTest #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=552c6c90_002Dd01c_002D4976_002Db301_002D94076a3a75e8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CoffeeManagerTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::CoffeeManagerTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=59966792_002D866c_002D48e0_002Dbfa8_002Dd299f7a03682/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddProduct_ValidInput_AddsProductToLoadedCoffee" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest.AddProduct_ValidInput_AddsProductToLoadedCoffee&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=619c66b7_002Dfce5_002D4d44_002D8b0d_002D13d4a06abcbb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddProduct_ValidInput_ProductShouldBeAddedSuccessfully" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest.AddProduct_ValidInput_ProductShouldBeAddedSuccessfully&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6fff99fb_002D44ee_002D420a_002D9db1_002D1e86a28da108/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddProduct_ExceedMaxVolume_ShouldThrowException #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest.AddProduct_ExceedMaxVolume_ShouldThrowException&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=71fba0af_002D3197_002D47b2_002Dba66_002D26cb8931ffb5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddProduct_ValidInput_ProductShouldBeAddedSuccessfully #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest.AddProduct_ValidInput_ProductShouldBeAddedSuccessfully&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a1d6e7f0_002D5223_002D4a15_002D84b4_002D35e50f2c0632/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CoffeeManagerTest #9" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a62dae50_002Db254_002D4a28_002Dbeef_002D05c1158053d1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddProduct_InvalidCost_DoesNotAddProduct" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest.AddProduct_InvalidCost_DoesNotAddProduct&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a8227531_002D142c_002D4a8c_002Db167_002D2d39f44e0cd9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CoffeeManagerTest #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c31771ee_002De068_002D41bb_002D95d4_002De89528928f8a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddProduct_ExceedMaxVolume_ShouldThrowException #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest.AddProduct_ExceedMaxVolume_ShouldThrowException&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=d10bde12_002D850f_002D4820_002D9978_002D2b4af4b6e8c8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddProduct_ValidInput_ProductShouldBeAddedSuccessfully #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=da85c5c7_002D82e9_002D498f_002D909c_002De55eb5b848ac/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CoffeeManagerTest #7" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e692fe2e_002D4a1b_002D45a9_002D9467_002Ddb997f823eca/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddProduct_ExceedMaxVolume_ShouldThrowException" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest.AddProduct_ExceedMaxVolume_ShouldThrowException&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f5b4d49c_002D2797_002D486e_002D9dde_002D4025d8f6b92c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CoffeeManagerTest #10" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ff3c4cb5_002D6120_002D4d1e_002Daabd_002Db6089bfbec5a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="AddProduct_InvalidQuality_DoesNotAddProduct" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;MSTest::8A9ABA92-5B85-471B-8F5F-6B0D9498C8B9::net8.0::Tests.CoffeeManagerTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;

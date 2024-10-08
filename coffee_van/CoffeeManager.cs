@@ -177,16 +177,23 @@ public class CoffeeManager
         {
             WriteLine(input);
             WriteLine("___________________________________");
-            value = int.Parse(ReadLine() ?? throw new InvalidOperationException());
-            if (value <= max && value >= 1)
+
+            string? userInput = ReadLine();
+        
+            // Ensure we have a valid input
+            if (!int.TryParse(userInput, out value) || value < 1 || value > max)
             {
-                exit = true;
+                WriteLine($"Please enter a valid number between 1 and {max}.");
+                continue; // Re-prompt for input
             }
+
+            exit = true; // Valid input
             WriteLine("___________________________________");
         }
 
         return value;
     }
+
 
     private static CoffeeNames SelectCoffeeNameFromUserInput(int value)
     {
