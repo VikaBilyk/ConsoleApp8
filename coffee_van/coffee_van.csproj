@@ -11,4 +11,8 @@
       <PackageReference Include="sdk" Version="1.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove=".gitignore" />
+    </ItemGroup>
+
 </Project>
